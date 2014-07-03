@@ -7,10 +7,10 @@ can be run with py.test or nosetests
 """
 from unittest import TestCase
 
-import pypawn_chess
-from pypawn_chess import rules
+from board_games import pawn_chess
+from board_games.pawn_chess import PawnChess
 
-print(pypawn_chess.__file__)
+print(pawn_chess.__file__)
 
 
 class TestRule(TestCase):
@@ -20,4 +20,3 @@ class TestRule(TestCase):
 
     def tearDown(self):
         pass
-

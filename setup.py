@@ -1,23 +1,23 @@
 #!/usr/bin/env python
 
 """
-It installs the pychess module and script
+It installs the Board Games module and script
 """
 
 from setuptools import setup
 
-import pytic_tac_toe  # to get __version__
+import board_games  # to get __version__
 
 setup(
-    name='PyTicTacToe',
-    version=pytic_tac_toe.__version__,
+    name='BoardGames',
+    version=board_games.__version__,
     author='Ramesh Sampath',
     author_email='ramesh@sampathweb.com',
-    packages=['pytic_tac_toe', 'pytic_tac_toe/test'],
+    packages=['board_games', 'board_games/test'],
     scripts=[],
-    url='http://sampathweb.com/py-packages/pytic_tac_toe/',
+    url='http://sampathweb.com/py-packages/board-games/',
     license='LICENSE.txt',
-    description='Game of Tic Tac Toe in Python',
+    description='Board Game Rules in Python',
     long_description=open('README.txt').read(),
     install_requires=[],
 )

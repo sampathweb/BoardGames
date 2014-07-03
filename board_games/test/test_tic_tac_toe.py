@@ -6,10 +6,10 @@ test code for pychess rules module
 can be run with py.test or nosetests
 """
 from unittest import TestCase
-import pytic_tac_toe
-from pytic_tac_toe import rules
+from board_games import tic_tac_toe
+from board_games.tic_tac_toe import TicTacToe
 
-print(pytic_tac_toe.__file__)
+print(tic_tac_toe.__file__)
 
 
 class TestRule(TestCase):
@@ -21,11 +21,11 @@ class TestRule(TestCase):
         pass
 
     def test_init(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         self.assertEqual(mytic.game_result, None)
 
     def test_play_comp_level_1(self):
-        mytic = rules.TicTacToe(play_computer=True, level=1)
+        mytic = TicTacToe(play_computer=True, level=1)
         mytic.player_a_move(0, 0)
         if (0, 1) in mytic.open_positions:
             mytic.player_a_move(0, 1)
@@ -34,7 +34,7 @@ class TestRule(TestCase):
         self.assertEqual(len(mytic.player_b_choices), 2)  # Three moves by Computer
 
     def test_play_comp_level_2(self):
-        mytic = rules.TicTacToe(play_computer=True, level=2)
+        mytic = TicTacToe(play_computer=True, level=2)
         mytic.player_a_move(1, 0)
         if (1, 1) in mytic.open_positions:
             mytic.player_a_move(1, 1)
@@ -43,49 +43,49 @@ class TestRule(TestCase):
         self.assertEqual(len(mytic.player_b_choices), 2)  # Three moves by Computer
 
     def test_player_a_win_row(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         mytic.player_a_move(0, 0)
         mytic.player_a_move(0, 1)
         mytic.player_a_move(0, 2)
         self.assertEqual(mytic.game_result, 'A')
 
     def test_player_a_win_col(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         mytic.player_a_move(2, 0)
         mytic.player_a_move(2, 1)
         mytic.player_a_move(2, 2)
         self.assertEqual(mytic.game_result, 'A')
 
     def test_player_a_win_diag(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         mytic.player_a_move(0, 0)
         mytic.player_a_move(1, 1)
         mytic.player_a_move(2, 2)
         self.assertEqual(mytic.game_result, 'A')
 
     def test_player_b_win_row(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         mytic.player_b_move(1, 0)
         mytic.player_b_move(1, 1)
         mytic.player_b_move(1, 2)
         self.assertEqual(mytic.game_result, 'B')
 
     def test_player_b_win_col(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         mytic.player_b_move(1, 0)
         mytic.player_b_move(1, 1)
         mytic.player_b_move(1, 2)
         self.assertEqual(mytic.game_result, 'B')
 
     def test_player_b_win_diag(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         mytic.player_b_move(0, 2)
         mytic.player_b_move(2, 0)
         mytic.player_b_move(1, 1)
         self.assertEqual(mytic.game_result, 'B')
 
     def test_draw(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         mytic.player_a_move(1, 0)
         mytic.player_a_move(1, 1)
         mytic.player_b_move(1, 2)
@@ -98,7 +98,7 @@ class TestRule(TestCase):
         self.assertEqual(mytic.game_result, 'D')
 
     def test_all_moves_draw(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         mytic.player_a_move(1, 0)
         mytic.player_a_move(1, 1)
         mytic.player_b_move(1, 2)
@@ -111,7 +111,7 @@ class TestRule(TestCase):
         self.assertEqual(mytic.game_result, 'D')
 
     def test_game_not_over(self):
-        mytic = rules.TicTacToe()
+        mytic = TicTacToe()
         mytic.player_a_move(1, 0)
         mytic.player_a_move(1, 1)
         mytic.player_b_move(1, 2)

@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 """
-A package to wrap the rules of PawnRace.
+A package to wrap the rules of PawnChess.
 """
 
 
-class PawnRace:
+class PawnChess:
 
     def __init__(self, play_computer=False, level=0):
         self.play_computer = play_computer
@@ -22,4 +22,3 @@ class PawnRace:
         # Reset the Pieces on the board
         self.player_a_choices = set()
         self.player_b_choices = set()
-
